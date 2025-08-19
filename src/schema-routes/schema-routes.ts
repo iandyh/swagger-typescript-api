@@ -561,7 +561,14 @@ export class SchemaRoutes {
       });
     }
 
-    if (routeParams.formData.length) {
+    if (contentKind === CONTENT_KIND.URL_ENCODED) {
+      schema = this.convertRouteParamsIntoObject(routeParams.formData);
+      content = this.schemaParserFabric.getInlineParseContent(
+        schema,
+        typeName,
+        [operationId],
+      );
+    } else if (routeParams.formData.length) {
       contentKind = CONTENT_KIND.FORM_DATA;
       schema = this.convertRouteParamsIntoObject(routeParams.formData);
       content = this.schemaParserFabric.getInlineParseContent(

@@ -146,23 +146,11 @@ export interface AmountTTT {
  */
 export type CurrencyTTT = string;
 
-export interface SingleFormUrlEncodedRequestPayloadTTT {
-  /** @format string */
-  param1: string;
-  param2: string;
-}
+export type SingleFormUrlEncodedRequestPayloadTTT = object;
 
-export interface FormUrlEncodedRequestPayloadTTT {
-  /** @format string */
-  param1: string;
-  param2: string;
-}
+export type FormUrlEncodedRequestPayloadTTT = object;
 
-export interface FormUrlEncodedRequest2PayloadTTT {
-  /** @format string */
-  param1: string;
-  param2: string;
-}
+export type FormUrlEncodedRequest2PayloadTTT = object;
 
 export interface UpdatePetWithFormPayloadTTT {
   /** Updated name of the pet */
@@ -636,7 +624,7 @@ export class Api<
         method: "POST",
         body: data,
         secure: true,
-        type: ContentType.FormData,
+        type: ContentType.UrlEncoded,
         ...params,
       }),
 

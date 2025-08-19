@@ -5327,19 +5327,11 @@ export interface FindPetsByTagsParams {
 
 export type FormUrlEncodedRequest2Data = any;
 
-export interface FormUrlEncodedRequest2Payload {
-  /** @format string */
-  param1: string;
-  param2: string;
-}
+export type FormUrlEncodedRequest2Payload = object;
 
 export type FormUrlEncodedRequestData = any;
 
-export interface FormUrlEncodedRequestPayload {
-  /** @format string */
-  param1: string;
-  param2: string;
-}
+export type FormUrlEncodedRequestPayload = object;
 
 export type GetInventoryData = Record<string, number>;
 
@@ -5435,11 +5427,7 @@ export type PlaceOrderData = Order;
 
 export type SingleFormUrlEncodedRequestData = any;
 
-export interface SingleFormUrlEncodedRequestPayload {
-  /** @format string */
-  param1: string;
-  param2: string;
-}
+export type SingleFormUrlEncodedRequestPayload = object;
 
 /** @default "available" */
 export enum StatusEnum {
@@ -6376,7 +6364,7 @@ export class Api<
         method: "POST",
         body: data,
         secure: true,
-        type: ContentType.FormData,
+        type: ContentType.UrlEncoded,
         ...params,
       }),
 
@@ -69452,7 +69440,7 @@ export class Api<
         method: "POST",
         body: data,
         secure: true,
-        type: ContentType.FormData,
+        type: ContentType.UrlEncoded,
         ...params,
       }),
 
@@ -75122,23 +75110,7 @@ export type ListSearchableFieldsError = string;
 
 export type PerformSearchData = Record<string, object>[];
 
-export interface PerformSearchPayload {
-  /**
-   * Uses Lucene Query Syntax in the format of propertyName:value, propertyName:[num1 TO num2] and date range format: propertyName:[yyyyMMdd TO yyyyMMdd]. In the response please see the 'docs' element which has the list of record objects. Each record structure would consist of all the fields and their corresponding values.
-   * @default "*:*"
-   */
-  criteria: string;
-  /**
-   * Specify number of rows to be returned. If you run the search with default values, in the response you will see 'numFound' attribute which will tell the number of records available in the dataset.
-   * @default 100
-   */
-  rows?: number;
-  /**
-   * Starting record number. Default value is 0.
-   * @default 0
-   */
-  start?: number;
-}
+export type PerformSearchPayload = object;
 
 export enum SomeEnum {
   Foo = "Foo",
